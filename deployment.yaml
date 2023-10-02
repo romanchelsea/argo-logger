@@ -17,3 +17,17 @@ spec:
           image: xiongwe/argo-logger:1.0
           ports:
             - containerPort: 5000
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: flask-app-service
+spec:
+  selector:
+    app: flask-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5000
+
